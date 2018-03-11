@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-role-ipa-client
+ipa_client_install_cmd: "ipa-client-install --unattended"
+ipa_client_additional_args: "--enable-dns-updates --mkhomedir --force-join --no-ntp"
+ipa_client_enroll_user:
+ipa_client_enroll_pass:
