@@ -14,7 +14,7 @@
 - name: Enroll host in domain
   when: not ipaclient_ipaconf.stat.exists
   command: >
-    "{{ ipa_client_install_cmd }}"
-    "{{ ipa_client_additional_args }}"
+    {{ ipa_client_install_cmd }}
+    {{ ipa_client_additional_args }}
     -p "{{ ipa_client_enroll_user }}"
     -w "{{ ipa_client_enroll_pass }}"
