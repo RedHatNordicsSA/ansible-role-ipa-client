@@ -1,17 +1,17 @@
 ---
 # tasks file for ansible-role-ipa-client
-- name: Install ipa-client packages
+- name: Install ipa-client software packages to allow for central auth/ID management
   package:
     name: ipa-client
     state: latest
 
-- name: Check if host is enrolled
+- name: Check if host exists in IPA server, if it is enrolled
   register: ipaclient_ipaconf
   check_mode: no
   stat:
     path: /etc/ipa/default.conf
 
-- name: Enroll host in domain
+- name: Add host to IPA server by enrolling host in domain.
   when: not ipaclient_ipaconf.stat.exists
   command: >
     {{ ipa_client_install_cmd }}
